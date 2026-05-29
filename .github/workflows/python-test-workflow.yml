@@ -22,4 +22,8 @@ jobs:
         run: ls ./test*.py
       - name: Test
         run: |
-          pytest test_*.py
+          pytest test_*.py –-junitxml=’report.xml’
+      - uses: actions/upload-artifact@v7
+        with:
+          name: testreport
+          path: 'report.xml'    
